@@ -1,6 +1,9 @@
 %token  mc_use bib_io bib_math
 %%
-S: mc_use BIB {printf("syntaxe correcte");}
+S: ImporterBib {printf("syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
+;
+ImporterBib : mc_use BIB ImporterBib      
+   |
 ;
 BIB :bib_io
    |bib_math ;

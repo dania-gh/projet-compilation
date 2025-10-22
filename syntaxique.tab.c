@@ -329,18 +329,18 @@ union yyalloc
 #endif
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  6
+#define YYFINAL  7
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   3
+#define YYLAST   4
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  6
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  3
+#define YYNNTS  4
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  4
+#define YYNRULES  6
 /* YYNRULES -- Number of states.  */
-#define YYNSTATES  7
+#define YYNSTATES  9
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
@@ -386,19 +386,20 @@ static const yytype_uint8 yytranslate[] =
    YYRHS.  */
 static const yytype_uint8 yyprhs[] =
 {
-       0,     0,     3,     6,     8
+       0,     0,     3,     5,     9,    10,    12
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-       7,     0,    -1,     3,     8,    -1,     4,    -1,     5,    -1
+       7,     0,    -1,     8,    -1,     3,     9,     8,    -1,    -1,
+       4,    -1,     5,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,     3,     3,     5,     6
+       0,     3,     3,     5,     6,     8,     9
 };
 #endif
 
@@ -408,7 +409,7 @@ static const yytype_uint8 yyrline[] =
 static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "mc_use", "bib_io", "bib_math",
-  "$accept", "S", "BIB", 0
+  "$accept", "S", "ImporterBib", "BIB", 0
 };
 #endif
 
@@ -424,13 +425,13 @@ static const yytype_uint16 yytoknum[] =
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,     6,     7,     8,     8
+       0,     6,     7,     8,     8,     9,     9
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     2,     1,     1
+       0,     2,     1,     3,     0,     1,     1
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -438,13 +439,13 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,     0,     0,     3,     4,     2,     1
+       4,     0,     0,     2,     5,     6,     4,     1,     3
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,     5
+      -1,     2,     3,     6
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -452,13 +453,13 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -5
 static const yytype_int8 yypact[] =
 {
-      -1,    -4,     3,    -5,    -5,    -5,    -5
+      -1,    -4,     3,    -5,    -5,    -5,    -1,    -5,    -5
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -5,    -5,    -5
+      -5,    -5,    -2,    -5
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -468,19 +469,19 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-       3,     4,     1,     6
+       4,     5,     1,     7,     8
 };
 
 static const yytype_uint8 yycheck[] =
 {
-       4,     5,     3,     0
+       4,     5,     3,     0,     6
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     3,     7,     4,     5,     8,     0
+       0,     3,     7,     8,     4,     5,     9,     0,     8
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1295,13 +1296,13 @@ yyreduce:
 
 /* Line 1455 of yacc.c  */
 #line 3 "syntaxique.y"
-    {printf("syntaxe correcte");          	         ;}
+    {printf("syntaxe correcte");;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1305 "syntaxique.tab.c"
+#line 1306 "syntaxique.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1513,7 +1514,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 7 "syntaxique.y"
+#line 10 "syntaxique.y"
 
 main () 
 {
