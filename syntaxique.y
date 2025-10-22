@@ -1,8 +1,9 @@
-%token  cst pvg aff idf
+%token  mc_use bib_io bib_math
 %%
-S: idf aff cst pvg S{printf("syntaxe correcte");          	            YYACCEPT;}
-   |idf aff cst pvg
-   ;
+S: mc_use BIB {printf("syntaxe correcte");}
+;
+BIB :bib_io
+   |bib_math ;
 %%
 main () 
 {

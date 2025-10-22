@@ -1,3 +1,4 @@
-x=5;
-x=5;
-2=5;
+
+@use math
+
+@use "math"
