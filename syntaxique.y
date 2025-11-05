@@ -2,22 +2,22 @@
 %%
 S: ImporterBib Header Code {printf("syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
-ImporterBib : mc_use BIB ImporterBib      
+ImporterBib : mc_use BIB ImporterBib   /*declare bib en boucle*/   
    |
 ;
-BIB :bib_io
+BIB :bib_io    /*to be able to choose between multiple bib */
    |bib_math 
 ;
-Header : mc_name dp idf
+Header : mc_name dp idf    /*to be able to accept Name : nameOfProgramme*/
 ;
 
-Code : mc_start dp Dec mc_stop pt
+Code : mc_start dp Dec mc_stop pt   /*accept generale form of code area (start: code stop.)*/
 ;
 
-Dec : MC idf equal
+Dec : MC idf equal         
 ;
 
-MC : mc_float
+MC : mc_float     /*to be able to choose on of the type of variable*/
    | mc_int
    |mc_text
 ;

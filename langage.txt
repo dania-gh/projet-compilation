@@ -1,5 +1,5 @@
 @use math
 Name : manar
 start :
-int x =
+float x =
 stop.
