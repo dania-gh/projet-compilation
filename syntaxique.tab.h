@@ -51,7 +51,8 @@
      mc_float = 267,
      mc_int = 268,
      mc_text = 269,
-     equal = 270
+     equal = 270,
+     ce = 271
    };
 #endif
 
