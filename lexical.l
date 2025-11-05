@@ -13,6 +13,9 @@ cst {chiffre}+
 Name return mc_name;
 start return mc_start;
 stop return mc_stop;
+int return mc_int;
+float return mc_float;
+text return mc_text;
 {IDF} return idf;
 "." return pt;
 ":" return dp;
