@@ -1,4 +1,5 @@
 @use math
 Name : manar
 start :
+int x
 stop.

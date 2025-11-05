@@ -47,7 +47,10 @@
      idf = 263,
      mc_start = 264,
      mc_stop = 265,
-     pt = 266
+     pt = 266,
+     mc_float = 267,
+     mc_int = 268,
+     mc_text = 269
    };
 #endif
 
