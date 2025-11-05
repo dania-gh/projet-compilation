@@ -39,9 +39,12 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     mc_use = 258,
-     bib_io = 259,
-     bib_math = 260
+     dp = 258,
+     mc_use = 259,
+     bib_io = 260,
+     bib_math = 261,
+     mc_name = 262,
+     idf = 263
    };
 #endif
 
