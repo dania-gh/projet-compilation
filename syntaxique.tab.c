@@ -101,7 +101,10 @@
      bib_io = 260,
      bib_math = 261,
      mc_name = 262,
-     idf = 263
+     idf = 263,
+     mc_start = 264,
+     mc_stop = 265,
+     pt = 266
    };
 #endif
 
@@ -119,7 +122,7 @@ typedef int YYSTYPE;
 
 
 /* Line 264 of yacc.c  */
-#line 123 "syntaxique.tab.c"
+#line 126 "syntaxique.tab.c"
 
 #ifdef short
 # undef short
@@ -334,20 +337,20 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  7
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   7
+#define YYLAST   12
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  9
+#define YYNTOKENS  12
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  5
+#define YYNNTS  6
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  7
+#define YYNRULES  8
 /* YYNRULES -- Number of states.  */
-#define YYNSTATES  13
+#define YYNSTATES  18
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   263
+#define YYMAXUTOK   266
 
 #define YYTRANSLATE(YYX)						\
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -381,7 +384,7 @@ static const yytype_uint8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8
+       5,     6,     7,     8,     9,    10,    11
 };
 
 #if YYDEBUG
@@ -389,20 +392,21 @@ static const yytype_uint8 yytranslate[] =
    YYRHS.  */
 static const yytype_uint8 yyprhs[] =
 {
-       0,     0,     3,     6,    10,    11,    13,    15
+       0,     0,     3,     7,    11,    12,    14,    16,    20
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      10,     0,    -1,    11,    13,    -1,     4,    12,    11,    -1,
-      -1,     5,    -1,     6,    -1,     7,     3,     8,    -1
+      13,     0,    -1,    14,    16,    17,    -1,     4,    15,    14,
+      -1,    -1,     5,    -1,     6,    -1,     7,     3,     8,    -1,
+       9,     3,    10,    11,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,     3,     3,     5,     6,     8,     9,    11
+       0,     3,     3,     5,     6,     8,     9,    11,    14
 };
 #endif
 
@@ -412,7 +416,8 @@ static const yytype_uint8 yyrline[] =
 static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "dp", "mc_use", "bib_io", "bib_math",
-  "mc_name", "idf", "$accept", "S", "ImporterBib", "BIB", "Header", 0
+  "mc_name", "idf", "mc_start", "mc_stop", "pt", "$accept", "S",
+  "ImporterBib", "BIB", "Header", "Code", 0
 };
 #endif
 
@@ -421,20 +426,21 @@ static const char *const yytname[] =
    token YYLEX-NUM.  */
 static const yytype_uint16 yytoknum[] =
 {
-       0,   256,   257,   258,   259,   260,   261,   262,   263
+       0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
+     265,   266
 };
 # endif
 
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,     9,    10,    11,    11,    12,    12,    13
+       0,    12,    13,    14,    14,    15,    15,    16,    17
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     2,     3,     0,     1,     1,     3
+       0,     2,     3,     3,     0,     1,     1,     3,     4
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -442,14 +448,14 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       4,     0,     0,     0,     5,     6,     4,     1,     0,     2,
-       3,     0,     7
+       4,     0,     0,     0,     5,     6,     4,     1,     0,     0,
+       3,     0,     0,     2,     7,     0,     0,     8
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,     3,     6,     9
+      -1,     2,     3,     6,     9,    13
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -457,14 +463,14 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -6
 static const yytype_int8 yypact[] =
 {
-      -2,    -5,     3,    -3,    -6,    -6,    -2,    -6,     2,    -6,
-      -6,    -1,    -6
+      -2,    -5,     3,    -3,    -6,    -6,    -2,    -6,     2,    -1,
+      -6,     1,     4,    -6,    -6,    -4,     0,    -6
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -6,    -6,     0,    -6,    -6
+      -6,    -6,     6,    -6,    -6,    -6
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -474,20 +480,22 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-       4,     5,     1,     7,     8,    11,    10,    12
+       4,     5,     1,     7,     8,    11,    16,    15,    12,    14,
+       0,    17,    10
 };
 
-static const yytype_uint8 yycheck[] =
+static const yytype_int8 yycheck[] =
 {
-       5,     6,     4,     0,     7,     3,     6,     8
+       5,     6,     4,     0,     7,     3,    10,     3,     9,     8,
+      -1,    11,     6
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     4,    10,    11,     5,     6,    12,     0,     7,    13,
-      11,     3,     8
+       0,     4,    13,    14,     5,     6,    15,     0,     7,    16,
+      14,     3,     9,    17,     8,     3,    10,    11
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1308,7 +1316,7 @@ yyreduce:
 
 
 /* Line 1455 of yacc.c  */
-#line 1312 "syntaxique.tab.c"
+#line 1320 "syntaxique.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1520,7 +1528,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 13 "syntaxique.y"
+#line 17 "syntaxique.y"
 
 main () 
 {

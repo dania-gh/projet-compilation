@@ -44,7 +44,10 @@
      bib_io = 260,
      bib_math = 261,
      mc_name = 262,
-     idf = 263
+     idf = 263,
+     mc_start = 264,
+     mc_stop = 265,
+     pt = 266
    };
 #endif
 

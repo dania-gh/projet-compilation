@@ -11,7 +11,10 @@ cst {chiffre}+
 "io" return bib_io;
 "math" return bib_math;
 Name return mc_name;
+start return mc_start;
+stop return mc_stop;
 {IDF} return idf;
+"." return pt;
 ":" return dp;
 [ \t]      ; 
 \n   {nb_ligne++; }

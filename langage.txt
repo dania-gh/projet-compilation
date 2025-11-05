@@ -1,2 +1,4 @@
 @use math
-hi
+Name : manar
+start :
+stop.
