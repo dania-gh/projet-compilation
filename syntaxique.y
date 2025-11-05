@@ -1,4 +1,4 @@
-%token  dp mc_use bib_io bib_math mc_name idf mc_start mc_stop pt mc_float mc_int mc_text
+%token  dp mc_use bib_io bib_math mc_name idf mc_start mc_stop pt mc_float mc_int mc_text equal
 %%
 S: ImporterBib Header Code {printf("syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -14,7 +14,7 @@ Header : mc_name dp idf
 Code : mc_start dp Dec mc_stop pt
 ;
 
-Dec : MC idf
+Dec : MC idf equal
 ;
 
 MC : mc_float

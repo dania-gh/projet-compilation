@@ -19,6 +19,7 @@ text return mc_text;
 {IDF} return idf;
 "." return pt;
 ":" return dp;
+"=" return equal;
 [ \t]      ; 
 \n   {nb_ligne++; }
 . printf("erreur lexicale la ligne %d \n",nb_ligne) ;
