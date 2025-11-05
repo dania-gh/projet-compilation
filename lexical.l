@@ -22,6 +22,7 @@ text return mc_text;
 "." return pt;
 ":" return dp;
 "=" return equal;
+";" return pvg;
 [ \t]      ; 
 \n   {nb_ligne++; }
 . printf("erreur lexicale la ligne %d \n",nb_ligne) ;
