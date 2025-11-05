@@ -7,7 +7,7 @@ chiffre [0-9]
 IDF {lettre}({lettre}|{chiffre})*
 /*cst {chiffre}+*/
 CE (0|[+-]?[1-9][0-9]*)
-CR (CE\.[0-9]+)
+CR ({CE}\.[0-9]+)
 %%
 "@use" return mc_use;
 "io" return bib_io;
