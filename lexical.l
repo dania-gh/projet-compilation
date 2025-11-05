@@ -18,7 +18,7 @@ int return mc_int;
 float return mc_float;
 text return mc_text;
 {IDF} return idf;
-{CE}
+{CE} return ce;
 "." return pt;
 ":" return dp;
 "=" return equal;
