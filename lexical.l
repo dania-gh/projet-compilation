@@ -7,6 +7,7 @@ chiffre [0-9]
 IDF {lettre}({lettre}|{chiffre})*
 /*cst {chiffre}+*/
 CE (0|[+-]?[1-9][0-9]*)
+CR (CE\.[0-9]+)
 %%
 "@use" return mc_use;
 "io" return bib_io;
@@ -18,6 +19,7 @@ int return mc_int;
 float return mc_float;
 text return mc_text;
 {CE} return ce;
+{CR} return cr;
 {IDF} return idf;
 "." return pt;
 ":" return dp;

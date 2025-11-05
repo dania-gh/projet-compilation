@@ -40,19 +40,21 @@
       know about them.  */
    enum yytokentype {
      dp = 258,
-     mc_use = 259,
-     bib_io = 260,
-     bib_math = 261,
-     mc_name = 262,
-     idf = 263,
-     mc_start = 264,
-     mc_stop = 265,
-     pt = 266,
-     mc_float = 267,
-     mc_int = 268,
-     mc_text = 269,
-     equal = 270,
-     ce = 271
+     pt = 259,
+     pvg = 260,
+     mc_use = 261,
+     bib_io = 262,
+     bib_math = 263,
+     mc_name = 264,
+     idf = 265,
+     mc_start = 266,
+     mc_stop = 267,
+     mc_float = 268,
+     mc_int = 269,
+     mc_text = 270,
+     equal = 271,
+     ce = 272,
+     cr = 273
    };
 #endif
 
