@@ -9,23 +9,23 @@ IDF {lettre}({lettre}|{chiffre})*
 CE (0|[+-]?[1-9][0-9]*)
 CR ({CE}\.[0-9]+)
 %%
-"@use" return mc_use;
-"io" return bib_io;
-"math" return bib_math;
-Name return mc_name;
-start return mc_start;
-stop return mc_stop;
-int return mc_int;
-float return mc_float;
-text return mc_text;
-{CE} return ce;
-{CR} return cr;
-{IDF} return idf;
-"." return pt;
-":" return dp;
-"=" return equal;
-";" return pvg;
+"@use" {printf("use ");return mc_use;}
+"io" {printf("is ");return bib_io;}
+"math" {printf("math ");return bib_math;}
+Name {printf("name ");return mc_name;}
+start {printf("start ");return mc_start;}
+stop {printf("stop ");return mc_stop;}
+int {printf("Mc_int ");return mc_int;}
+float {printf("mc_float ");return mc_float;}
+text {printf("mc_text ");return mc_text;}
+{CE} {printf("ce ");return ce;}
+{CR} {printf("ce ");return cr;}
+{IDF} {printf("idf ");return idf;}
+"." {printf("pt ");return pt;}
+":" {printf("dp ");return dp;}
+"=" {printf("equal ");return equal;}
+";" {printf("pvg ");return pvg;}
 [ \t]      ; 
-\n   {nb_ligne++; }
+\n   {printf("\n");nb_ligne++; }
 . printf("erreur lexicale la ligne %d \n",nb_ligne) ;
 %%

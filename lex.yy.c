@@ -639,82 +639,82 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 12 "lexical.l"
-return mc_use;
+{printf("use ");return mc_use;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 13 "lexical.l"
-return bib_io;
+{printf("is ");return bib_io;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 14 "lexical.l"
-return bib_math;
+{printf("math ");return bib_math;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 15 "lexical.l"
-return mc_name;
+{printf("name ");return mc_name;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 16 "lexical.l"
-return mc_start;
+{printf("start ");return mc_start;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 17 "lexical.l"
-return mc_stop;
+{printf("stop ");return mc_stop;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 18 "lexical.l"
-return mc_int;
+{printf("int ");return mc_int;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 19 "lexical.l"
-return mc_float;
+{printf("float ");return mc_float;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 20 "lexical.l"
-return mc_text;
+{printf("text ");return mc_text;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 21 "lexical.l"
-return ce;
+{printf("ce ");return ce;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 22 "lexical.l"
-return cr;
+{printf("ce ");return cr;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 23 "lexical.l"
-return idf;
+{printf("idf ");return idf;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 24 "lexical.l"
-return pt;
+{printf("pt ");return pt;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 25 "lexical.l"
-return dp;
+{printf("dp ");return dp;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 26 "lexical.l"
-return equal;
+{printf("equal ");return equal;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 27 "lexical.l"
-return pvg;
+{printf("pvg ");return pvg;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
@@ -724,7 +724,7 @@ YY_RULE_SETUP
 case 18:
 YY_RULE_SETUP
 #line 29 "lexical.l"
-{nb_ligne++; }
+{printf("\n");nb_ligne++; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
