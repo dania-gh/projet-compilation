@@ -3,7 +3,7 @@ int nb_ligne =1;
 %}
 
 
-%token  dp pt pvg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr
+%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr
 %%
 S: ImporterBib Header Code {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;

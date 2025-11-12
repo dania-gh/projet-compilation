@@ -4,7 +4,8 @@ extern nb_ligne;
 %}
 lettre [a-zA-Z]
 chiffre [0-9]
-IDF {lettre}({lettre}|{chiffre})*
+/*IDF {lettre}(_|{chiffre}|{lettre})**/
+IDF {lettre}(_|{chiffre}|{lettre})*
 /*cst {chiffre}+*/
 CE (0|[+-]?[1-9][0-9]*)
 CR ({CE}\.[0-9]+)
@@ -26,6 +27,7 @@ text {printf("mc_text ");return mc_text;}
 ":" {printf("dp ");return dp;}
 "=" {printf("equal ");return equal;}
 ";" {printf("pvg ");return pvg;}
+"," {printf("vg ");return vg;}
 [ \t]      ; 
 \n   {printf("\n");nb_ligne++; }
 . printf("erreur lexicale la ligne %d \n",nb_ligne) ;

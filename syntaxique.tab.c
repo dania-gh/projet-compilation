@@ -1562,13 +1562,13 @@ yyreturn:
 
 main () 
 {
-printf("C'est le compilateur de langague IA2025\n");
+/*printf("C'est le compilateur de langague IA2025\n");   to print any msg we want*/
 yyparse();
 }
 yywrap()
 {}
 yyerror(char*msg)
 {
-printf("error Syntaxique a la ligne %d\n",nb_ligne);
+printf("error Syntaxique a la ligne %d\n",nb_ligne); /* print error lexicale in cmd*/
 }
 
