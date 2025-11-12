@@ -669,17 +669,17 @@ YY_RULE_SETUP
 case 7:
 YY_RULE_SETUP
 #line 18 "lexical.l"
-{printf("int ");return mc_int;}
+{printf("Mc_int ");return mc_int;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 19 "lexical.l"
-{printf("float ");return mc_float;}
+{printf("mc_float ");return mc_float;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 20 "lexical.l"
-{printf("text ");return mc_text;}
+{printf("mc_text ");return mc_text;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
@@ -694,49 +694,50 @@ YY_RULE_SETUP
 case 12:
 YY_RULE_SETUP
 #line 23 "lexical.l"
-{printf("idf ");return idf;}
+{if (yyleng>20) printf("erreur lexicale a ligne %d sur l entite %s\n",nb_ligne,yytext);
+    else printf("idf");return idf;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 24 "lexical.l"
+#line 25 "lexical.l"
 {printf("pt ");return pt;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 25 "lexical.l"
+#line 26 "lexical.l"
 {printf("dp ");return dp;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 26 "lexical.l"
+#line 27 "lexical.l"
 {printf("equal ");return equal;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 27 "lexical.l"
+#line 28 "lexical.l"
 {printf("pvg ");return pvg;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 28 "lexical.l"
+#line 29 "lexical.l"
 ; 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 29 "lexical.l"
+#line 30 "lexical.l"
 {printf("\n");nb_ligne++; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 30 "lexical.l"
+#line 31 "lexical.l"
 printf("erreur lexicale la ligne %d \n",nb_ligne) ;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 31 "lexical.l"
+#line 32 "lexical.l"
 ECHO;
 	YY_BREAK
-#line 740 "lex.yy.c"
+#line 741 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1622,4 +1623,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 31 "lexical.l"
+#line 32 "lexical.l"

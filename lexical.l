@@ -20,7 +20,8 @@ float {printf("mc_float ");return mc_float;}
 text {printf("mc_text ");return mc_text;}
 {CE} {printf("ce ");return ce;}
 {CR} {printf("ce ");return cr;}
-{IDF} {printf("idf ");return idf;}
+{IDF} {if (yyleng>20) printf("erreur lexicale a ligne %d sur l entite %s\n",nb_ligne,yytext);
+    else printf("idf");return idf;}
 "." {printf("pt ");return pt;}
 ":" {printf("dp ");return dp;}
 "=" {printf("equal ");return equal;}

@@ -1335,7 +1335,7 @@ yyreduce:
 
 /* Line 1455 of yacc.c  */
 #line 3 "syntaxique.y"
-    {printf("syntaxe correcte");;}
+    {printf(" syntaxe correcte");;}
     break;
 
 
