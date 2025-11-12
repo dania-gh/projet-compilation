@@ -398,7 +398,7 @@ char *yytext;
 #define INITIAL 0
 #line 2 "lexical.l"
 #include "Syntaxique.tab.h"   
-int nb_ligne=1;
+extern nb_ligne;
 /*cst {chiffre}+*/
 #line 404 "lex.yy.c"
 
@@ -695,7 +695,7 @@ case 12:
 YY_RULE_SETUP
 #line 23 "lexical.l"
 {if (yyleng>20) printf("erreur lexicale a ligne %d sur l entite %s\n",nb_ligne,yytext);
-    else printf("idf");return idf;}
+    else printf("idf ");return idf;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP

@@ -67,9 +67,14 @@
 
 /* Copy the first part of user declarations.  */
 
+/* Line 189 of yacc.c  */
+#line 1 "syntaxique.y"
+
+int nb_ligne =1;
+
 
 /* Line 189 of yacc.c  */
-#line 73 "syntaxique.tab.c"
+#line 78 "syntaxique.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -129,7 +134,7 @@ typedef int YYSTYPE;
 
 
 /* Line 264 of yacc.c  */
-#line 133 "syntaxique.tab.c"
+#line 138 "syntaxique.tab.c"
 
 #ifdef short
 # undef short
@@ -417,8 +422,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,     3,     3,     5,     6,     8,     9,    11,    14,    17,
-      18,    19
+       0,     8,     8,    10,    11,    13,    14,    16,    19,    22,
+      23,    24
 };
 #endif
 
@@ -1334,14 +1339,14 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 3 "syntaxique.y"
+#line 8 "syntaxique.y"
     {printf(" syntaxe correcte");;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1345 "syntaxique.tab.c"
+#line 1350 "syntaxique.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1553,12 +1558,17 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 24 "syntaxique.y"
+#line 29 "syntaxique.y"
 
 main () 
 {
+printf("C'est le compilateur de langague IA2025\n");
 yyparse();
 }
 yywrap()
 {}
+yyerror(char*msg)
+{
+printf("error Syntaxique a la ligne %d\n",nb_ligne);
+}
 

@@ -1,5 +1,5 @@
 @use math
-Name : manarrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+Name : manar manar
 start :
 int x = 0
 stop.
