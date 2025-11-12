@@ -42,19 +42,20 @@
      dp = 258,
      pt = 259,
      pvg = 260,
-     mc_use = 261,
-     bib_io = 262,
-     bib_math = 263,
-     mc_name = 264,
-     idf = 265,
-     mc_start = 266,
-     mc_stop = 267,
-     mc_float = 268,
-     mc_int = 269,
-     mc_text = 270,
-     equal = 271,
-     ce = 272,
-     cr = 273
+     vg = 261,
+     mc_use = 262,
+     bib_io = 263,
+     bib_math = 264,
+     mc_name = 265,
+     idf = 266,
+     mc_start = 267,
+     mc_stop = 268,
+     mc_float = 269,
+     mc_int = 270,
+     mc_text = 271,
+     equal = 272,
+     ce = 273,
+     cr = 274
    };
 #endif
 
