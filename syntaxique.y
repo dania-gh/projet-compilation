@@ -3,7 +3,7 @@ int nb_ligne =1;
 %}
 
 
-%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr
+%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr TXT
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -21,6 +21,7 @@ Body : mc_start dp Dec mc_stop pt   /*accept generale form of body area (start: 
 
 Dec : mc_int AffecEnt pvg  Dec    /*to be able to choose on of the type of variable and declare multiple time*/
       |mc_float AffecFloat pvg Dec
+      |mc_text AffecText pvg Dec
       |
 ;
 
@@ -36,6 +37,12 @@ AffecFloat : idf               /*declare one or multiple float with or without a
          | AffecFloat vg idf equal cr
 ;
 
+AffecText : idf               /*declare one or multiple text with or without affectation*/
+         | idf equal TXT
+         | AffecText vg idf
+         | AffecText vg idf equal TXT
+;
+
 
 
 %%
@@ -48,5 +55,5 @@ yywrap()
 {}
 yyerror(char*msg)
 {
-printf("error Syntaxique a la ligne %d\n",nb_ligne); /* print error lexicale in cmd*/
+printf("error syntaxique a la ligne %d\n",nb_ligne); /* print error lexicale in cmd*/
 }

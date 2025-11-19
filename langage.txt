@@ -1,6 +1,7 @@
 @use math
 Name : ma__r
 start :
-int x = 0,y;
+int x = 0,y,t=5;
 float x = 0.0,k;
+text m = kgkjhjl;
 stop.

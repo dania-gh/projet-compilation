@@ -9,6 +9,7 @@ IDF {lettre}(_|{chiffre}|{lettre})*
 /*cst {chiffre}+*/
 CE (0|[+-]?[1-9][0-9]*)
 CR ({CE}\.[0-9]+)
+TXT [^\n\"]*
 %%
 "@use" {printf("use ");return mc_use;}
 "io" {printf("is ");return bib_io;}
@@ -21,6 +22,7 @@ float {printf("mc_float ");return mc_float;}
 text {printf("mc_text ");return mc_text;}
 {CE} {printf("ce ");return ce;}
 {CR} {printf("ce ");return cr;}
+{TXT} {printf("txt ");return txt;}
 {IDF} {if (yyleng>20) printf("erreur lexicale a ligne %d sur l entite %s\n",nb_ligne,yytext);
     else printf("idf ");return idf;}
 "." {printf("pt ");return pt;}
