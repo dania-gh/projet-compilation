@@ -1,9 +1,7 @@
 %{
 int nb_ligne =1;
 %}
-
-
-%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine mc_say
+%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine mc_say plus sub mul div2 great mc_step mc_by mc_until
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -34,6 +32,18 @@ Inst : mc_say chaine pvg
 Affec : idf equal Expression pvg
 ;
 
+Expression : valeur
+           |Operation
+           |idf
+;
+
+Operation : Operation op Operation
+         |idf
+         |valeur
+;
+
+op : plus | mul | div2 | sub 
+;
 
 
 
@@ -48,7 +58,7 @@ Type : mc_float
 ListDec : ListDec vg idf       /*declare one or multiple entier with or without affectation*/
          |ListDec vg idf equal valeur
          |idf
-         |idf equal valer
+         |idf equal valeur
 ;
 
 valeur : cr

@@ -10,4 +10,6 @@ SAY "hello";
 
 b = 5;
 
+a = 5+w ;
+
 stop.

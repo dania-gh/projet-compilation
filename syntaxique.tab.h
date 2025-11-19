@@ -57,7 +57,12 @@
      ce = 273,
      cr = 274,
      chaine = 275,
-     mc_say = 276
+     mc_say = 276,
+     plus = 277,
+     sub = 278,
+     mul = 279,
+     div2 = 280,
+     great = 281
    };
 #endif
 

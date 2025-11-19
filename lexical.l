@@ -21,6 +21,9 @@ int {printf("Mc_int ");return mc_int;}
 float {printf("mc_float ");return mc_float;}
 text {printf("mc_text ");return mc_text;}
 SAY {printf("SAY ");return mc_say;}
+STEP {printf("STEP ");return mc_step;}
+BY {printf("BY ");return mc_by;}
+UNTIL {printf("UNTIL ");return mc_until;}
 {CE} {printf("ce ");return ce;}
 {CR} {printf("ce ");return cr;}
 {chaine} {printf("chaine ");return chaine;}
@@ -31,6 +34,11 @@ SAY {printf("SAY ");return mc_say;}
 "=" {printf("equal ");return equal;}
 ";" {printf("pvg ");return pvg;}
 "," {printf("vg ");return vg;}
+"+" {printf("plus ");return plus;}
+"-" {printf("sub ");return sub;}
+"/" {printf("div ");return div2;}
+"*" {printf("mul ");return mul;}
+">" {printf("great ");return great;}
 [ \t]      ; 
 \n   {printf("\n");nb_ligne++; }
 . printf("erreur lexicale la ligne %d \n",nb_ligne) ;
