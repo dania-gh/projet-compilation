@@ -55,7 +55,8 @@
      mc_text = 271,
      equal = 272,
      ce = 273,
-     cr = 274
+     cr = 274,
+     chaine = 275
    };
 #endif
 

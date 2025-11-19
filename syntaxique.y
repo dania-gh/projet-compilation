@@ -3,7 +3,7 @@ int nb_ligne =1;
 %}
 
 
-%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr TXT
+%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -27,7 +27,7 @@ Dec : mc_int AffecEnt pvg  Dec    /*to be able to choose on of the type of varia
 
 AffecEnt : AffecEnt vg idf       /*declare one or multiple entier with or without affectation*/
          |AffecEnt vg idf equal ce
-         | idf
+         |idf
          |idf equal ce
 ;
 
@@ -38,9 +38,9 @@ AffecFloat : idf               /*declare one or multiple float with or without a
 ;
 
 AffecText : idf               /*declare one or multiple text with or without affectation*/
-         | idf equal TXT
+         | idf equal chaine
          | AffecText vg idf
-         | AffecText vg idf equal TXT
+         | AffecText vg idf equal chaine
 ;
 
 
