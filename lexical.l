@@ -24,6 +24,10 @@ SAY {printf("SAY ");return mc_say;}
 STEP {printf("STEP ");return mc_step;}
 BY {printf("BY ");return mc_by;}
 UNTIL {printf("UNTIL ");return mc_until;}
+HEAR {printf("HEAR ");return mc_hear;}
+\"%f\" {printf("signe_reel ");return signe_reel;}
+\"%d\" {printf("signe_int ");return signe_int;}
+\"%s\" {printf("signe_chaine ");return signe_chaine;}
 {CE} {printf("ce ");return ce;}
 {CR} {printf("ce ");return cr;}
 {chaine} {printf("chaine ");return chaine;}

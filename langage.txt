@@ -5,10 +5,13 @@ int x = 0,y,t=5;
 text m = "kgkjhjl";
 float x = 0.0,k;
 
-SAY "hello";
+SAY "%d";
 
 b = 5;
 a = 5+w ;
+
+
+HEAR "%d", x ;
 
 STEP i BY 8+k UNTIL i != 10 {
     SAY "hello";

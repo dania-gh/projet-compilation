@@ -71,7 +71,11 @@
      not_equal = 287,
      equal_less = 288,
      equal_great = 289,
-     less = 290
+     less = 290,
+     signe_chaine = 291,
+     signe_int = 292,
+     signe_reel = 293,
+     mc_hear = 294
    };
 #endif
 
