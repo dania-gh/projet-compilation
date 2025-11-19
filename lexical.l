@@ -20,6 +20,7 @@ stop {printf("stop ");return mc_stop;}
 int {printf("Mc_int ");return mc_int;}
 float {printf("mc_float ");return mc_float;}
 text {printf("mc_text ");return mc_text;}
+SAY {printf("SAY ");return mc_say;}
 {CE} {printf("ce ");return ce;}
 {CR} {printf("ce ");return cr;}
 {chaine} {printf("chaine ");return chaine;}

@@ -3,7 +3,7 @@ int nb_ligne =1;
 %}
 
 
-%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine
+%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine mc_say
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -16,8 +16,19 @@ BIB :bib_io    /*to be able to choose between multiple bib */
 Header : mc_name dp idf    /*to be able to accept Name : nameOfProgramme*/
 ;
 
-Body : mc_start dp Dec mc_stop pt   /*accept generale form of body area (start: dec stop.)*/
+Body : mc_start dp listDecsInst mc_stop pt   /*accept generale form of body area (start: dec stop.)*/
 ;
+
+listDecsInst : Dec listDecsInst
+            |Inst listDecsInst
+            |Dec 
+            |Inst 
+;
+
+
+Inst : mc_say chaine pvg 
+;
+
 
 Dec : mc_int AffecEnt pvg  Dec    /*to be able to choose on of the type of variable and declare multiple time*/
       |mc_float AffecFloat pvg Dec

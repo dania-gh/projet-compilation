@@ -56,7 +56,8 @@
      equal = 272,
      ce = 273,
      cr = 274,
-     chaine = 275
+     chaine = 275,
+     mc_say = 276
    };
 #endif
 
