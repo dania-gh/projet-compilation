@@ -41,6 +41,10 @@ UNTIL {printf("UNTIL ");return mc_until;}
 ">" {printf("great ");return great;}
 \{ {printf("acc_ouv ");return acc_ouv;}
 \} {printf("acc_fer ");return acc_fer;}
+"<" {printf("less ");return less;}
+">=" {printf("equal_great ");return equal_great;}
+"<=" {printf("equal_less ");return equal_less;}
+"!=" {printf("not_equal ");return not_equal;}
 [ \t]      ; 
 \n   {printf("\n");nb_ligne++; }
 . printf("erreur lexicale la ligne %d \n",nb_ligne) ;

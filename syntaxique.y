@@ -1,7 +1,7 @@
 %{
 int nb_ligne =1;
 %}
-%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine mc_say plus sub mul div2 great mc_step mc_by mc_until acc_fer acc_ouv 
+%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine mc_say plus sub mul div2 great mc_step mc_by mc_until acc_fer acc_ouv not_equal equal_less equal_great less
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -20,9 +20,7 @@ Body : mc_start dp listDecsInst mc_stop pt   /*accept generale form of body area
 listDecsInst : Dec listDecsInst
             |ListInst listDecsInst
             |Affec listDecsInst
-            |Dec 
-            |ListInst 
-            |Affec
+            |
 ;
 
 
@@ -33,9 +31,12 @@ ListInst : Inst_Say
 Inst_Say : mc_say chaine pvg 
 ;
 
-Inst_Loop : mc_step idf mc_by Expression  mc_until idf great ce acc_ouv listDecsInst acc_fer pvg
+Inst_Loop : mc_step idf mc_by Expression  mc_until Condition_loop acc_ouv listDecsInst acc_fer pvg
 ;
 
+Condition_loop : idf comparaision ce;
+
+comparaision : great|less|equal|equal_great|equal_less|not_equal;
  
 
 Affec : idf equal Expression pvg

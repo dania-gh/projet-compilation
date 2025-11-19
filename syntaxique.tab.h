@@ -67,7 +67,11 @@
      mc_by = 283,
      mc_until = 284,
      acc_fer = 285,
-     acc_ouv = 286
+     acc_ouv = 286,
+     not_equal = 287,
+     equal_less = 288,
+     equal_great = 289,
+     less = 290
    };
 #endif
 
