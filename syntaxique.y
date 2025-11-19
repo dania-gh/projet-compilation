@@ -21,38 +21,41 @@ Body : mc_start dp listDecsInst mc_stop pt   /*accept generale form of body area
 
 listDecsInst : Dec listDecsInst
             |Inst listDecsInst
+            |Affec listDecsInst
             |Dec 
             |Inst 
+            |Affec
 ;
 
 
 Inst : mc_say chaine pvg 
 ;
 
+Affec : idf equal Expression pvg
+;
 
-Dec : mc_int AffecEnt pvg  Dec    /*to be able to choose on of the type of variable and declare multiple time*/
-      |mc_float AffecFloat pvg Dec
-      |mc_text AffecText pvg Dec
+
+
+
+Dec : Type ListDec pvg  Dec
       |
 ;
 
-AffecEnt : AffecEnt vg idf       /*declare one or multiple entier with or without affectation*/
-         |AffecEnt vg idf equal ce
+Type : mc_float
+      | mc_int
+      |mc_text
+
+ListDec : ListDec vg idf       /*declare one or multiple entier with or without affectation*/
+         |ListDec vg idf equal valeur
          |idf
-         |idf equal ce
+         |idf equal valer
 ;
 
-AffecFloat : idf               /*declare one or multiple float with or without affectation*/
-         | idf equal cr
-         | AffecFloat vg idf
-         | AffecFloat vg idf equal cr
+valeur : cr
+        | ce
+        |chaine
 ;
 
-AffecText : idf               /*declare one or multiple text with or without affectation*/
-         | idf equal chaine
-         | AffecText vg idf
-         | AffecText vg idf equal chaine
-;
 
 
 

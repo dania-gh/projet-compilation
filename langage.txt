@@ -7,4 +7,7 @@ float x = 0.0,k;
 
 SAY "hello";
 
+
+b = 5;
+
 stop.
