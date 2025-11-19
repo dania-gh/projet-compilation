@@ -62,7 +62,12 @@
      sub = 278,
      mul = 279,
      div2 = 280,
-     great = 281
+     great = 281,
+     mc_step = 282,
+     mc_by = 283,
+     mc_until = 284,
+     acc_fer = 285,
+     acc_ouv = 286
    };
 #endif
 

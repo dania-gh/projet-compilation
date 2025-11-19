@@ -39,6 +39,8 @@ UNTIL {printf("UNTIL ");return mc_until;}
 "/" {printf("div ");return div2;}
 "*" {printf("mul ");return mul;}
 ">" {printf("great ");return great;}
+\{ {printf("acc_ouv ");return acc_ouv;}
+\} {printf("acc_fer ");return acc_fer;}
 [ \t]      ; 
 \n   {printf("\n");nb_ligne++; }
 . printf("erreur lexicale la ligne %d \n",nb_ligne) ;

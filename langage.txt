@@ -7,9 +7,10 @@ float x = 0.0,k;
 
 SAY "hello";
 
-
 b = 5;
-
 a = 5+w ;
 
+STEP i BY 8+k UNTIL i > 10 {
+    SAY "hello";
+};
 stop.
