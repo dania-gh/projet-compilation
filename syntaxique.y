@@ -1,7 +1,14 @@
 %{
 int nb_ligne =1;
+
+int oprNumber;
 %}
-%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal ce cr chaine mc_say plus sub mul div2 great mc_step mc_by mc_until acc_fer acc_ouv not_equal equal_less equal_great less signe_chaine signe_int signe_reel mc_hear Commentaire
+%union {
+int entier;
+float reel:
+char* str;
+}
+%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal <entier>ce <reel>cr chaine mc_say plus sub mul div2 great mc_step mc_by mc_until acc_fer acc_ouv not_equal equal_less equal_great less signe_chaine signe_int signe_reel mc_hear Commentaire
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -19,7 +26,7 @@ Body : mc_start dp listDecsInst mc_stop pt   /*accept generale form of body area
 
 listDecsInst : Dec listDecsInst
             |ListInst listDecsInst
-            |Affec listDecsInst
+            |InstAffec listDecsInst
             |Commentaire listDecsInst
             |
 
@@ -51,7 +58,7 @@ Condition_loop : idf comparaision ce;
 comparaision : great|less|equal|equal_great|equal_less|not_equal;
  
 
-Affec : idf equal Expression pvg
+InstAffec : idf equal Expression pvg
 ;
 
 Expression : valeur
@@ -59,12 +66,15 @@ Expression : valeur
            |idf
 ;
 
-Operation : Operation op Operation
+Operation : Operation op Operation 
          |idf
-         |valeur
+         |valeur 
 ;
 
-op : plus | mul | div2 | sub 
+op : plus {oprNumber=1}
+      | mul {oprNumber=2}
+      | div2  {oprNumber=3}
+      | sub {oprNumber=4}
 ;
 
 
@@ -74,7 +84,7 @@ Dec : Type ListDec pvg  Dec
 ;
 
 Type : mc_float
-      | mc_int
+      |mc_int
       |mc_text
 
 ListDec : ListDec vg idf       /*declare one or multiple entier with or without affectation*/
@@ -84,7 +94,7 @@ ListDec : ListDec vg idf       /*declare one or multiple entier with or without 
 ;
 
 valeur : cr
-        | ce
+        |ce
         |chaine
 ;
 

@@ -1,6 +1,7 @@
 %{
 #include "Syntaxique.tab.h"   
 extern nb_ligne;
+extern YYSTYPE yylval;
 %}
 lettre [a-zA-Z]
 chiffre [0-9]
@@ -29,8 +30,11 @@ HEAR {printf("HEAR ");return mc_hear;}
 \"%f\" {printf("signe_reel ");return signe_reel;}
 \"%d\" {printf("signe_int ");return signe_int;}
 \"%s\" {printf("signe_chaine ");return signe_chaine;}
-{CE} {printf("ce ");return ce;}
-{CR} {printf("ce ");return cr;}
+{CE} {yylval.entier=atoi(yytext);
+     printf("ce ");
+     return ce;}
+{CR} {yylval.reel=atof(yytext);
+    printf("ce ");return cr;}
 {chaine} {printf("chaine ");return chaine;}
 {cmnt} {printf("Commentaire ");return Commentaire;}
 {IDF} {if (yyleng>20) printf("erreur lexicale a ligne %d sur l entite %s\n",nb_ligne,yytext);
