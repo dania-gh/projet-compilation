@@ -10,7 +10,7 @@ IDF {lettre}(_|{chiffre}|{lettre})*
 CE (0|[+-]?[1-9][0-9]*)
 CR ({CE}\.[0-9]+)
 chaine \"[^\"]*\"
-cmnt \-\-[^\-]*\-\-
+cmnt "--"([^-]|"-"[^-])*"--"
 %%
 "@use" {printf("use ");return mc_use;}
 "io" {printf("is ");return bib_io;}
