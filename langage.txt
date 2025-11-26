@@ -5,7 +5,7 @@ int x = 0,y,t=5;
 text m = "kgkjhjl";
 float x = 0.0,k;
 
-SAY "%d";
+--dfggdfgdffggf--
 
 b = 5;
 a = 5+w ;

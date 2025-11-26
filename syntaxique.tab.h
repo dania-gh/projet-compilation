@@ -75,7 +75,8 @@
      signe_chaine = 291,
      signe_int = 292,
      signe_reel = 293,
-     mc_hear = 294
+     mc_hear = 294,
+     Commentaire = 295
    };
 #endif
 
