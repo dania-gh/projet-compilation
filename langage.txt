@@ -7,6 +7,10 @@ float x = 0.0,k;
 
 --Commentaire --
 
+SAY "hello";
+SAY "hello %d",x;
+
+
 b = 5;
 a = 5+w ;
 

@@ -37,8 +37,11 @@ Inst_Hear : mc_hear Signe vg idf pvg
 Signe : signe_chaine | signe_int | signe_reel 
 ;
 
-Inst_Say : mc_say chaine pvg 
+Inst_Say : mc_say chaine Variable pvg 
 ;
+
+Variable :vg idf
+         |
 
 Inst_Loop : mc_step idf mc_by Expression  mc_until Condition_loop acc_ouv listDecsInst acc_fer pvg
 ;
