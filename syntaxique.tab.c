@@ -1474,8 +1474,8 @@ yyreduce:
     {
             if (oprNumber == 3)  {     /* division */
                 if ((yyvsp[(3) - (3)].reel) == 0) {
-                    fprintf(stderr, "erreur : division par zero a la ligne %d\n", nb_ligne);
-                    YYERROR;  /* reject the expression */
+                    printf("erreur : division par zero a la ligne %d\n", nb_ligne);
+                    YYERROR;   /*reject the expression */
                 }
                 (yyval.reel) = (yyvsp[(1) - (3)].reel) / (yyvsp[(3) - (3)].reel);
             } ;}
@@ -1751,6 +1751,7 @@ main ()
 {
 /*printf("C'est le compilateur de langague IA2025\n");   to print any msg we want*/
 yyparse();
+afficher();
 }
 yywrap()
 {}
