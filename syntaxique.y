@@ -1,13 +1,17 @@
 %{
+#include <stdio.h>
+#include <stdlib.h>
 int nb_ligne =1;
 
 int oprNumber;
 %}
 %union {
-int entier;
-float reel:
-char* str;
+    int entier;
+    float reel;
+    char* str;
 }
+%type <reel> Expression Operation valeur
+
 %token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal <entier>ce <reel>cr chaine mc_say plus sub mul div2 great mc_step mc_by mc_until acc_fer acc_ouv not_equal equal_less equal_great less signe_chaine signe_int signe_reel mc_hear Commentaire
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
@@ -61,14 +65,23 @@ comparaision : great|less|equal|equal_great|equal_less|not_equal;
 InstAffec : idf equal Expression pvg
 ;
 
-Expression : valeur
-           |Operation
-           |idf
+Expression
+    : valeur                  { $$ = $1; }
+    | idf                     
+    | Operation               { $$ = $1; }
 ;
 
-Operation : Operation op Operation 
+
+Operation : Operation op Operation {
+            if (oprNumber == 3)  {     /* division */
+                if ($3 == 0) {
+                    fprintf(stderr, "erreur : division par zero a la ligne %d\n", nb_ligne);
+                    YYERROR;  /* reject the expression */
+                }
+                $$ = $1 / $3;
+            } }
          |idf
-         |valeur 
+         |valeur { $$ = $1; }
 ;
 
 op : plus {oprNumber=1}
@@ -93,8 +106,8 @@ ListDec : ListDec vg idf       /*declare one or multiple entier with or without 
          |idf equal valeur
 ;
 
-valeur : cr
-        |ce
+valeur : cr { $$ = $1; }
+        |ce { $$ = $1; }
         |chaine
 ;
 

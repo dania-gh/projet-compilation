@@ -70,11 +70,15 @@
 /* Line 189 of yacc.c  */
 #line 1 "syntaxique.y"
 
+#include <stdio.h>
+#include <stdlib.h>
 int nb_ligne =1;
+
+int oprNumber;
 
 
 /* Line 189 of yacc.c  */
-#line 78 "syntaxique.tab.c"
+#line 82 "syntaxique.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -145,7 +149,21 @@ int nb_ligne =1;
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+{
+
+/* Line 214 of yacc.c  */
+#line 8 "syntaxique.y"
+
+    int entier;
+    float reel;
+    char* str;
+
+
+
+/* Line 214 of yacc.c  */
+#line 166 "syntaxique.tab.c"
+} YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -156,7 +174,7 @@ typedef int YYSTYPE;
 
 
 /* Line 264 of yacc.c  */
-#line 160 "syntaxique.tab.c"
+#line 178 "syntaxique.tab.c"
 
 #ifdef short
 # undef short
@@ -450,7 +468,7 @@ static const yytype_int8 yyrhs[] =
       29,    54,    31,    47,    30,     5,    -1,    11,    55,    18,
       -1,    26,    -1,    35,    -1,    17,    -1,    34,    -1,    33,
       -1,    32,    -1,    11,    17,    57,     5,    -1,    63,    -1,
-      58,    -1,    11,    -1,    58,    59,    58,    -1,    11,    -1,
+      11,    -1,    58,    -1,    58,    59,    58,    -1,    11,    -1,
       63,    -1,    22,    -1,    24,    -1,    25,    -1,    23,    -1,
       61,    62,     5,    60,    -1,    -1,    14,    -1,    15,    -1,
       16,    -1,    62,     6,    11,    -1,    62,     6,    11,    17,
@@ -461,12 +479,12 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,     6,     6,     8,     9,    11,    12,    14,    17,    20,
-      21,    22,    23,    24,    29,    30,    31,    34,    37,    37,
-      37,    40,    43,    44,    46,    49,    51,    51,    51,    51,
-      51,    51,    54,    57,    58,    59,    62,    63,    64,    67,
-      67,    67,    67,    72,    73,    76,    77,    78,    80,    81,
-      82,    83,    86,    87,    88
+       0,    17,    17,    19,    20,    22,    23,    25,    28,    31,
+      32,    33,    34,    35,    40,    41,    42,    45,    48,    48,
+      48,    51,    54,    55,    57,    60,    62,    62,    62,    62,
+      62,    62,    65,    69,    70,    71,    75,    83,    84,    87,
+      88,    89,    90,    95,    96,    99,   100,   101,   103,   104,
+     105,   106,   109,   110,   111
 };
 #endif
 
@@ -483,7 +501,7 @@ static const char *const yytname[] =
   "signe_chaine", "signe_int", "signe_reel", "mc_hear", "Commentaire",
   "$accept", "S", "ImporterBib", "BIB", "Header", "Body", "listDecsInst",
   "ListInst", "Inst_Hear", "Signe", "Inst_Say", "Variable", "Inst_Loop",
-  "Condition_loop", "comparaision", "Affec", "Expression", "Operation",
+  "Condition_loop", "comparaision", "InstAffec", "Expression", "Operation",
   "op", "Dec", "Type", "ListDec", "valeur", 0
 };
 #endif
@@ -533,7 +551,7 @@ static const yytype_uint8 yydefact[] =
        0,     0,     0,    13,     0,    13,    16,    14,    15,    13,
       13,     0,     0,    23,     0,    18,    19,    20,     0,    12,
        0,    10,    11,     9,    50,     0,    37,    53,    52,    54,
-       0,    34,    38,     0,     0,     0,     0,     8,     0,    44,
+       0,    35,    38,     0,     0,     0,     0,     8,     0,    44,
        0,    32,    39,    42,    40,    41,     0,    22,    21,     0,
        0,    51,    43,    48,    37,    36,    38,     0,    17,     0,
        0,     0,    49,    28,    26,    31,    30,    29,    27,     0,
@@ -577,12 +595,12 @@ static const yytype_int8 yypgoto[] =
    positive, shift that token.  If negative, reduce the rule which
    number is the opposite.  If zero, do what YYDEFACT says.
    If YYTABLE_NINF, syntax error.  */
-#define YYTABLE_NINF -36
+#define YYTABLE_NINF -35
 static const yytype_int8 yytable[] =
 {
-      39,   -35,    41,   -33,     1,    16,    42,    43,    17,    18,
+      39,   -34,    41,   -33,     1,    16,    42,    43,    17,    18,
       19,    71,    35,    36,    37,    20,    17,    18,    19,    76,
-      83,    21,    47,    48,    49,   -35,     7,   -33,     8,    84,
+      83,    21,    47,    48,    49,   -34,     7,   -33,     8,    84,
        4,     5,    82,    22,    23,    85,    86,    87,    88,    46,
       59,    60,    74,    11,    12,    14,    47,    48,    49,    47,
       48,    49,    62,    63,    64,    65,    15,    33,    32,    34,
@@ -1431,14 +1449,91 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 6 "syntaxique.y"
+#line 17 "syntaxique.y"
     {printf(" syntaxe correcte");;}
+    break;
+
+  case 33:
+
+/* Line 1455 of yacc.c  */
+#line 69 "syntaxique.y"
+    { (yyval.reel) = (yyvsp[(1) - (1)].reel); ;}
+    break;
+
+  case 35:
+
+/* Line 1455 of yacc.c  */
+#line 71 "syntaxique.y"
+    { (yyval.reel) = (yyvsp[(1) - (1)].reel); ;}
+    break;
+
+  case 36:
+
+/* Line 1455 of yacc.c  */
+#line 75 "syntaxique.y"
+    {
+            if (oprNumber == 3)  {     /* division */
+                if ((yyvsp[(3) - (3)].reel) == 0) {
+                    fprintf(stderr, "erreur : division par zero a la ligne %d\n", nb_ligne);
+                    YYERROR;  /* reject the expression */
+                }
+                (yyval.reel) = (yyvsp[(1) - (3)].reel) / (yyvsp[(3) - (3)].reel);
+            } ;}
+    break;
+
+  case 38:
+
+/* Line 1455 of yacc.c  */
+#line 84 "syntaxique.y"
+    { (yyval.reel) = (yyvsp[(1) - (1)].reel); ;}
+    break;
+
+  case 39:
+
+/* Line 1455 of yacc.c  */
+#line 87 "syntaxique.y"
+    {oprNumber=1;}
+    break;
+
+  case 40:
+
+/* Line 1455 of yacc.c  */
+#line 88 "syntaxique.y"
+    {oprNumber=2;}
+    break;
+
+  case 41:
+
+/* Line 1455 of yacc.c  */
+#line 89 "syntaxique.y"
+    {oprNumber=3;}
+    break;
+
+  case 42:
+
+/* Line 1455 of yacc.c  */
+#line 90 "syntaxique.y"
+    {oprNumber=4;}
+    break;
+
+  case 52:
+
+/* Line 1455 of yacc.c  */
+#line 109 "syntaxique.y"
+    { (yyval.reel) = (yyvsp[(1) - (1)].reel); ;}
+    break;
+
+  case 53:
+
+/* Line 1455 of yacc.c  */
+#line 110 "syntaxique.y"
+    { (yyval.reel) = (yyvsp[(1) - (1)].entier); ;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1442 "syntaxique.tab.c"
+#line 1537 "syntaxique.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1650,7 +1745,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 94 "syntaxique.y"
+#line 117 "syntaxique.y"
 
 main () 
 {
