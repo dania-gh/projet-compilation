@@ -39,44 +39,44 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     dp = 258,
-     pt = 259,
-     pvg = 260,
-     vg = 261,
-     mc_use = 262,
-     bib_io = 263,
-     bib_math = 264,
-     mc_name = 265,
-     idf = 266,
-     mc_start = 267,
-     mc_stop = 268,
-     mc_float = 269,
-     mc_int = 270,
-     mc_text = 271,
-     equal = 272,
-     ce = 273,
-     cr = 274,
-     chaine = 275,
+     idf = 258,
+     chaine = 259,
+     mc_float = 260,
+     mc_int = 261,
+     mc_text = 262,
+     ce = 263,
+     cr = 264,
+     dp = 265,
+     pt = 266,
+     pvg = 267,
+     vg = 268,
+     mc_use = 269,
+     bib_io = 270,
+     bib_math = 271,
+     mc_name = 272,
+     mc_start = 273,
+     mc_stop = 274,
+     equal = 275,
      mc_say = 276,
-     plus = 277,
-     sub = 278,
-     mul = 279,
-     div2 = 280,
-     great = 281,
-     mc_step = 282,
-     mc_by = 283,
-     mc_until = 284,
-     acc_fer = 285,
-     acc_ouv = 286,
-     not_equal = 287,
-     equal_less = 288,
-     equal_great = 289,
-     less = 290,
-     signe_chaine = 291,
-     signe_int = 292,
-     signe_reel = 293,
-     mc_hear = 294,
-     Commentaire = 295
+     mc_step = 277,
+     mc_by = 278,
+     mc_until = 279,
+     acc_fer = 280,
+     acc_ouv = 281,
+     not_equal = 282,
+     equal_less = 283,
+     equal_great = 284,
+     less = 285,
+     great = 286,
+     signe_chaine = 287,
+     signe_int = 288,
+     signe_reel = 289,
+     mc_hear = 290,
+     Commentaire = 291,
+     plus = 292,
+     sub = 293,
+     mul = 294,
+     div2 = 295
    };
 #endif
 
@@ -87,7 +87,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 8 "syntaxique.y"
+#line 13 "syntaxique.y"
 
     int entier;
     float reel;

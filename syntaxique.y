@@ -1,10 +1,15 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
-int nb_ligne =1;
+#include <string.h>
 
+int yylex();
+void yyerror(char* msg);
+int nb_ligne = 1;
 int oprNumber;
+char suavType[20];
 %}
+
 %union {
     int entier;
     float reel;
@@ -12,7 +17,14 @@ int oprNumber;
 }
 %type <reel> Expression Operation valeur
 
-%token  dp pt pvg vg mc_use bib_io bib_math mc_name idf mc_start mc_stop mc_float mc_int mc_text equal <entier>ce <reel>cr chaine mc_say plus sub mul div2 great mc_step mc_by mc_until acc_fer acc_ouv not_equal equal_less equal_great less signe_chaine signe_int signe_reel mc_hear Commentaire
+
+%token <str> idf chaine mc_float mc_int mc_text
+%token <entier> ce
+%token <reel> cr
+
+%token dp pt pvg vg mc_use bib_io bib_math mc_name mc_start mc_stop equal
+%token mc_say mc_step mc_by mc_until acc_fer acc_ouv not_equal equal_less equal_great less
+%token great signe_chaine signe_int signe_reel mc_hear Commentaire plus sub mul div2
 %%
 S: ImporterBib Header Body {printf(" syntaxe correcte");}    /*boucle to run multiple bib (recursivite) */
 ;
@@ -67,7 +79,7 @@ InstAffec : idf equal Expression pvg
 
 Expression
     : valeur                  { $$ = $1; }
-    | idf                     
+    | idf                     { $$ = 0; }                  
     | Operation               { $$ = $1; }
 ;
 
@@ -92,18 +104,22 @@ op : plus {oprNumber=1}
 
 
 
-Dec : Type ListDec pvg  Dec
-      |
+Dec : Type ListDec pvg  Dec 
+      |Type ListDec pvg
 ;
 
-Type : mc_float
-      |mc_int
-      |mc_text
+Type : mc_float {strcpy(suavType,$1); }
+      |mc_int     {strcpy(suavType,$1); }
+      |mc_text    {strcpy(suavType,$1); }
 
-ListDec : ListDec vg idf       /*declare one or multiple entier with or without affectation*/
-         |ListDec vg idf equal valeur
-         |idf
-         |idf equal valeur
+ListDec : ListDec vg idf       { if (doubleDeclaration($3)==0) insererType($3,suavType);
+                        else printf("erreur Semantique: double declation de %s, a la ligne %d\n", $3, nb_ligne); }
+         |ListDec vg idf equal valeur { if (doubleDeclaration($3)==0) insererType($3,suavType);
+                        else printf("erreur Semantique: double declation de %s, a la ligne %d\n", $3, nb_ligne); }
+         |idf     { if ( doubleDeclaration($1)==0)insererType($1,suavType);
+                  else printf("erreur Semantique: double declation de %s, a la ligne %d\n", $1, nb_ligne);}
+         |idf equal valeur    { if ( doubleDeclaration($1)==0)insererType($1,suavType);
+                  else printf("erreur Semantique: double declation de %s, a la ligne %d\n", $1, nb_ligne);}
 ;
 
 valeur : cr { $$ = $1; }

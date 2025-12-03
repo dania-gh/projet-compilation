@@ -20,9 +20,13 @@ cmnt "--"([^-]|"-"[^-])*"--"
 Name {printf("name ");return mc_name;}
 start {printf("start ");return mc_start;}
 stop {printf("stop ");return mc_stop;}
-int {printf("Mc_int ");return mc_int;}
-float {printf("mc_float ");return mc_float;}
-text {printf("mc_text ");return mc_text;}
+int {yylval.str=strdup(yytext); 
+    printf("Mc_int ");
+    return mc_int;}
+float {yylval.str=strdup(yytext); 
+    printf("mc_float ");
+    return mc_float;}
+text {yylval.str=strdup(yytext); printf("mc_text ");return mc_text;}
 SAY {printf("SAY ");return mc_say;}
 STEP {printf("STEP ");return mc_step;}
 BY {printf("BY ");return mc_by;}
@@ -40,8 +44,9 @@ HEAR {printf("HEAR ");return mc_hear;}
 {cmnt} {printf("Commentaire ");return Commentaire;}
 {IDF} {if (yyleng>20) printf("erreur lexicale a ligne %d sur l entite %s\n",nb_ligne,yytext);
     else printf("idf ");
-    inserer(yytext,"idf");
-    return idf;}
+         yylval.str=strdup(yytext);
+         inserer(yytext,"idf");
+         return idf;}
 "." {printf("pt ");return pt;}
 ":" {printf("dp ");return dp;}
 "=" {printf("equal ");return equal;}
